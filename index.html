@@ -14,6 +14,25 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+<script>
+    function toggleText() {
+        const extraText = document.getElementById("extraText");
+        if (extraText.style.display === "none") {
+            extraText.style.display = "block";
+        } else {
+            extraText.style.display = "none";
+        }
+    }
+
+    function toggleText2() {
+        const extraText2 = document.getElementById("extraText2");
+        if (extraText2.style.display === "none") {
+            extraText2.style.display = "block";
+        } else {
+            extraText2.style.display = "none";
+        }
+    }
+</script>
 <body>
     <nav class="navbar">
         <ul class="navbar-menu">
@@ -24,7 +43,41 @@
         </ul>
     </nav>
     <div class="main-content">
-
+        <h1>WELCOME</h1>
+        <p>Creative Photography & Video Editing Team</p>
+        <img src="images/camera.png" alt="Camera Image" class="main-image">
+        <img src="images/editing.png" alt="Editing Image" class="main-image">
+    </div>
+    <div class="about-content">
+        <h1>DUALLENS</h1>
+        <p>Duallens is a creative photography and video editing team. Our goal is to capture and edit moments that tell stories and create lasting memories. We have 2 members who work together to bring your vision to life.</p>
+    </div>
+    <div class="portofolio-content">
+        <div class="member1-portofolio">
+            <h2>Member 1 - Photographer</h2>
+            <img src="images/photographer.jpg" alt="Photographer Image" class="member-image">
+            <p>Our photographer specializes in capturing stunning images that tell a story. With a keen eye for detail and a passion for creativity, they bring your vision to life through the lens.</p>
+            <button onclick="toggleText()">Weapon</button>
+            <p id="extraText" style="display:none;">Canon EOS 700d</p>
+        </div>
+        <div class="member2-portofolio">
+            <h2>Member 2 - Video Editor</h2>
+            <img src="images/video_editor.jpg" alt="Video Editor Image" class="member-image">
+            <p>Our video editor is skilled in transforming raw footage into captivating videos. With expertise in various editing techniques and software, they ensure that every project is polished and engaging.</p>
+            <button onclick="toggleText2()">Weapon</button>
+            <p id="extraText2" style="display:none;">Alight Motion, After Effect, Capcut Pro</p>
+        </div>
+    </div>
+    <div class="help_contact-content">
+        <h1>Help/Contact</h1>
+        <p>If you have any questions or need assistance, feel free to reach out to us. We're here to help!</p>
+        <p>Email: </p>
+        <p>Instagram: </p>
+    </div>
+    <div>
+        <footer class="footer">
+            <p>&copy; 2024 Duallens. All rights reserved.</p>
+        </footer>
     </div>
 </body>
 </html>
