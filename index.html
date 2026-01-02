@@ -32,6 +32,37 @@
             extraText2.style.display = "none";
         }
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+    
+    // 1. Pilih semua elemen yang punya class 'reveal'
+    const reveals = document.querySelectorAll('.reveal');
+
+    // 2. Buat fungsi "CCTV" (Intersection Observer)
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            // Jika elemen masuk ke dalam layar (isIntersecting)
+            if (entry.isIntersecting) {
+                // Tambahkan class 'active' agar animasi CSS jalan
+                entry.target.classList.add('active');
+                
+                // (Opsional) Stop memantau elemen ini agar animasi tidak berulang-ulang
+                // observer.unobserve(entry.target); 
+            } else {
+                // (Opsional) Jika ingin animasi hilang lagi saat di-scroll ke atas (keluar layar)
+                // Hapus tanda komentar di bawah ini:
+                // entry.target.classList.remove('active'); 
+            }
+        });
+    }, {
+        threshold: 0.1  // Animasi jalan ketika 10% bagian elemen sudah nongol di layar
+    });
+
+    // 3. Pasang CCTV ke setiap elemen
+    reveals.forEach((element) => {
+        observer.observe(element);
+    });
+});
 </script>
 <body>
     <nav class="navbar">
@@ -43,14 +74,23 @@
         </ul>
     </nav>
     <div class="main-content">
-        <h1>WELCOME</h1>
-        <p>Creative Photography & Video Editing Team</p>
-        <img src="images/camera.png" alt="Camera Image" class="main-image">
-        <img src="images/editing.png" alt="Editing Image" class="main-image">
+        <img src="images/bg_main-content.jpg" alt="Background Image" class="bg-main-image">
+        <div class="text-main">
+            <h1 class="reveal">WELCOME</h1>
+            <p class="reveal">Our Portofolio of Creative Photography & Video Editing Team</p>
+        </div>
+        <div class="image-main reveal">
+            <img src="images/camera_main-content.jpg" alt="Camera Image" class="main-image camera1">
+            <img src="images/editing_main-content.jpg" alt="Editing Image" class="main-image editing1">
+        </div>
     </div>
     <div class="about-content">
-        <h1>DUALLENS</h1>
-        <p>Duallens is a creative photography and video editing team. Our goal is to capture and edit moments that tell stories and create lasting memories. We have 2 members who work together to bring your vision to life.</p>
+        <div class="text-about">
+            <h1>DUALLENS</h1>
+            <p>Duallens is a creative photography and video editing team focused on delivering high-quality visual storytelling. Our goal is to capture, craft, and edit moments that tell meaningful stories and create lasting memories through strong visuals and thoughtful editing.
+    With a dedicated team of two creatives, we collaborate closely in every stage of the process—from planning and shooting to post-production and final delivery. This teamwork allows us to maintain a consistent visual style, pay attention to detail, and ensure each project reflects the client’s vision.
+    Through our portfolio, we showcase our approach to storytelling, our technical expertise, and our commitment to producing visuals that are not only aesthetically pleasing but also impactful and authentic.</p>
+        </div>
     </div>
     <div class="portofolio-content">
         <div class="member1-portofolio">
@@ -58,14 +98,20 @@
             <img src="images/photographer.jpg" alt="Photographer Image" class="member-image">
             <p>Our photographer specializes in capturing stunning images that tell a story. With a keen eye for detail and a passion for creativity, they bring your vision to life through the lens.</p>
             <button onclick="toggleText()">Weapon</button>
-            <p id="extraText" style="display:none;">Canon EOS 700d</p>
+            <ul id ="extraText" style="display:none">
+                <li>Canon EOS 700d</li>
+            </ul>
         </div>
         <div class="member2-portofolio">
             <h2>Member 2 - Video Editor</h2>
             <img src="images/video_editor.jpg" alt="Video Editor Image" class="member-image">
             <p>Our video editor is skilled in transforming raw footage into captivating videos. With expertise in various editing techniques and software, they ensure that every project is polished and engaging.</p>
             <button onclick="toggleText2()">Weapon</button>
-            <p id="extraText2" style="display:none;">Alight Motion, After Effect, Capcut Pro</p>
+            <ul id ="extraText2" style="display:none">
+                <li>Alight Motion</li>
+                <li>Capcut Pro</li>
+                <li>After Effect</li>
+            </ul>
         </div>
     </div>
     <div class="help_contact-content">
