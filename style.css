@@ -240,11 +240,22 @@ body {
 /* PORTOFOLIO SECTION */
 .portofolio-content {
     background-color: var(--bg-main);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(120, 0, 255, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 90% 50%, rgba(255, 165, 0, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 30% 90%, rgba(255, 0, 100, 0.3) 0%, transparent 40%);
+    background-attachment: fixed;
+    background-size: cover;
     color: var(--text-main);
-    min-height: 50vh;
+    min-height: 200vh;
     gap: 50px;
     padding: 3rem 25rem;
     text-align: center;
+}
+
+.text-portofolio {
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 .icon-list {
@@ -323,4 +334,22 @@ body {
     border: 2px solid white;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
     margin-bottom: 10px;
+}
+
+.creation-portofolio {
+    margin-top: 10px;
+    gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.card-creation {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+    border: 2px solid white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    object-fit: cover;
+    object-position: center;
 }
