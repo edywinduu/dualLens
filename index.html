@@ -15,23 +15,23 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <script>
-    function toggleText() {
-        const extraText = document.getElementById("extraText");
-        if (extraText.style.display === "none") {
-            extraText.style.display = "block";
-        } else {
-            extraText.style.display = "none";
+    function toggleInfo(targetId, ...idsToClose) {
+    idsToClose.forEach(id => {
+        const elementToClose = document.getElementById(id);
+        if (elementToClose) {
+            elementToClose.style.display = "none";
         }
-    }
+    });
 
-    function toggleText2() {
-        const extraText2 = document.getElementById("extraText2");
-        if (extraText2.style.display === "none") {
-            extraText2.style.display = "block";
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+        if (targetElement.style.display === "none" || targetElement.style.display === "") {
+            targetElement.style.display = "flex";
         } else {
-            extraText2.style.display = "none";
+            targetElement.style.display = "none";
         }
     }
+}
 
     document.addEventListener('DOMContentLoaded', function() {
     
@@ -75,6 +75,7 @@
     </nav>
     <div class="main-content">
         <img src="images/bg_main-content.jpg" alt="Background Image" class="bg-main-image">
+        <img src="images/favicon.png" alt="Logo Image" class="logo-main-image flicker-constant">
         <div class="text-main">
             <h1 class="reveal">WELCOME</h1>
             <p class="reveal">Our Portofolio of Creative Photography & Video Editing Team</p>
@@ -87,31 +88,56 @@
     <div class="about-content">
         <div class="text-about">
             <h1>DUALLENS</h1>
-            <p>Duallens is a creative photography and video editing team focused on delivering high-quality visual storytelling. Our goal is to capture, craft, and edit moments that tell meaningful stories and create lasting memories through strong visuals and thoughtful editing.
-    With a dedicated team of two creatives, we collaborate closely in every stage of the process—from planning and shooting to post-production and final delivery. This teamwork allows us to maintain a consistent visual style, pay attention to detail, and ensure each project reflects the client’s vision.
-    Through our portfolio, we showcase our approach to storytelling, our technical expertise, and our commitment to producing visuals that are not only aesthetically pleasing but also impactful and authentic.</p>
+            <p>Duallens adalah tim <b>fotografi</b> dan penyuntingan <b>video kreatif</b> yang berfokus pada penyampaian cerita visual berkualitas tinggi. Tujuan kami adalah untuk menangkap, mengolah, dan menyunting momen-momen yang menceritakan kisah bermakna dan menciptakan kenangan abadi melalui visual yang kuat dan penyuntingan yang cermat. Dengan tim yang terdiri dari dua orang kreatif, kami berkolaborasi erat di setiap tahap proses—mulai dari perencanaan dan pengambilan gambar hingga pasca-produksi dan pengiriman akhir. Kerja sama tim ini memungkinkan kami untuk mempertahankan gaya visual yang konsisten, memperhatikan detail, dan memastikan setiap proyek mencerminkan visi klien. Melalui portofolio kami, kami menampilkan pendekatan kami terhadap penceritaan, keahlian teknis kami, dan komitmen kami untuk menghasilkan visual yang tidak hanya estetis tetapi juga berdampak dan autentik.</p>
+        </div>
+        <div class="line-separator"></div>
+        <div class="mottotext-about">
+            <p class="mottotext-about1 reveal">"Capturing Moments, Crafting Stories"</p>
+            <p class="mottotext-about2 reveal">Satu <br>berburu momen.</p>
+            <p class="mottotext-about3 reveal">Satu menghidupkan <br>suasana.</p>
         </div>
     </div>
     <div class="portofolio-content">
-        <div class="member1-portofolio">
-            <h2>Member 1 - Photographer</h2>
-            <img src="images/photographer.jpg" alt="Photographer Image" class="member-image">
-            <p>Our photographer specializes in capturing stunning images that tell a story. With a keen eye for detail and a passion for creativity, they bring your vision to life through the lens.</p>
-            <button onclick="toggleText()">Weapon</button>
-            <ul id ="extraText" style="display:none">
-                <li>Canon EOS 700d</li>
-            </ul>
-        </div>
-        <div class="member2-portofolio">
-            <h2>Member 2 - Video Editor</h2>
-            <img src="images/video_editor.jpg" alt="Video Editor Image" class="member-image">
-            <p>Our video editor is skilled in transforming raw footage into captivating videos. With expertise in various editing techniques and software, they ensure that every project is polished and engaging.</p>
-            <button onclick="toggleText2()">Weapon</button>
-            <ul id ="extraText2" style="display:none">
-                <li>Alight Motion</li>
-                <li>Capcut Pro</li>
-                <li>After Effect</li>
-            </ul>
+        <div class="text-portofolio" style="font-weight: bold;">OUR PORTOFOLIO</div>
+        <div class="card-portofolio">
+            <div class="member1-portofolio">
+                <h2>Photographer</h2>
+                <img src="images/photographer.jpg" alt="Photographer Image" class="member-image">
+                <p style="font-weight: bold;">Komang Dhio Rimben Januartha</p>
+                <p>Fotografer berspesialisasi dalam menangkap momen menakjubkan yang penuh makna. Berbekal ketelitian pada detail dan hasrat seni, mereka menghidupkan visi Anda lewat bidikan lensa.</p>
+                <div class="button-card">
+                    <button onclick="toggleInfo('extraText', 'extraSosmed')">Weapon</button>
+                    <button onclick="toggleInfo('extraSosmed', 'extraText')">Social Media</button>
+                </div>
+                <ul id ="extraText" class="icon-list">
+                    <li><img src="images/portofolio/camera.png" alt="Camera Image" class="icon-portofolio">Canon EOS 700d</li>
+                    <li><img src="images/portofolio/photoshop.png" alt="Photoshop Image" class="icon-portofolio">Photoshop</li>
+                </ul>
+                <ul id ="extraSosmed" class="icon-list">
+                    <li><img src="images/portofolio/instagram.png" alt="Instagram Image" class="icon-portofolio">@ioo.ox_</li>
+                </ul>
+            </div>
+            <div class="member2-portofolio">
+                <h2>Video Editor</h2>
+                <img src="images/video_editor.jpg" alt="Video Editor Image" class="member-image">
+                <p style="font-weight: bold;">I Kadek Edy Windu Saputra</p>
+                <p>Editor video terampil dalam mengubah footag mentah menjadi video yang menarik. Dengan keahlian dalam berbagai teknik editing dan perangkat lunak, ia memastikan setiap proyek menjadi halus dan menarik.</p>
+                <div class="button-card">
+                    <button onclick="toggleInfo('extraText2', 'extraSosmed2')">Weapon</button>
+                    <button onclick="toggleInfo('extraSosmed2', 'extraText2')">Social Media</button>
+                </div>
+                <div class="list-portofolio">
+                    <ul id ="extraText2" class="icon-list">
+                        <li><img src="images/portofolio/alightMotion.png" alt="Alight Motion Image" class="icon-portofolio">Alight Motion</li>
+                        <li><img src="images/portofolio/capcut.png" alt="Capcut Image" class="icon-portofolio">Capcut Pro</li>
+                        <li><img src="images/portofolio/afterEffect.png" alt="After Effect Image" class="icon-portofolio">After Effect</li>
+                    </ul>
+                    <ul id ="extraSosmed2" class="icon-list">
+                        <li><img src="images/portofolio/instagram.png" alt="Instagram Image" class="icon-portofolio">@edywinduu</li>
+                        <li><img src="images/portofolio/tiktok.png" alt="Tiktok Image" class="icon-portofolio">@3dye_</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
     <div class="help_contact-content">

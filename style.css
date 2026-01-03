@@ -18,12 +18,15 @@ body {
 
 .navbar {
     background-color: var(--bg-main);
+    position: fixed;
+    top: 0;
     display: flex;
     width: 100%;
     height: 80px;
     justify-content: center;
     align-items: center;
     padding: 1rem 5rem;
+    z-index: 1000;
     box-shadow: 8px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -60,7 +63,7 @@ body {
 .main-content {
     position: relative;
     overflow: hidden;
-    height: 60vh;
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -81,6 +84,38 @@ body {
     z-index: -1;
     opacity: 0.3;
     filter: blur(2px);
+}
+
+.logo-main-image {
+    position: absolute;
+    top: 60%;
+    left: 52%;
+    transform: translate(-50%, -70%);
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.3;
+    filter: blur(2px);
+}
+
+@keyframes flickerAnimation {
+    0%   { opacity: 0.2; }
+    3%   { opacity: 0.4; }
+    6%   { opacity: 0.5; }
+    7%   { opacity: 0.4; }
+    8%   { opacity: 0.5; }
+    9%   { opacity: 0.5; }
+    10%  { opacity: 0.5; } /* Mati sebentar */
+    11%  { opacity: 0.5; }
+    40%  { opacity: 0.5; }
+    41%  { opacity: 0.8; }
+    42%  { opacity: 0.5; }
+    100% { opacity: 0.5; }
+}
+
+.flicker-constant {
+    animation: flickerAnimation 2s infinite; /* Berulang setiap 2 detik */
 }
 
 .text-main {
@@ -143,11 +178,149 @@ body {
 .about-content {
     background-color: white;
     color: black;
-    padding: 2rem;
+    height: auto;
+    display: column;
+    padding: 1rem 6rem;
     text-align: center;
-};
+}
+
+.line-separator {
+    width: 70%;
+    height: 2px;
+    background-color: gray;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
 .text-about h1 {
     font-size: 36px;
     margin-bottom: 20px;
+}
+
+.text-about p {
+    font-size: 18px;
+    line-height: 1.5;
+    column-count: 2;
+    column-gap: 50px;
+    text-align: justify;
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+
+}
+
+.text-about p {
+    column-rule: 1px solid #ddd;
+}
+
+.mottotext-about {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.mottotext-about1 {
+    margin-top: 20px;
+    font-size: 60px;
+}
+
+.mottotext-about2 {
+    line-height: 1.2;
+    font-size: 50px;
+    text-align: left;
+}
+
+.mottotext-about3 {
+    line-height: 1.2;
+    font-size: 50px;
+    text-align: right;
+}
+
+/* PORTOFOLIO SECTION */
+.portofolio-content {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    min-height: 50vh;
+    gap: 50px;
+    padding: 3rem 25rem;
+    text-align: center;
+}
+
+.icon-list {
+    display: none;
+    flex-direction: column;
+    list-style-type: none;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    gap: 10px;
+}
+
+.icon-list li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-portofolio {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    background-color: transparent;
+    margin-right: 10px;
+}
+
+.button-card {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.text-portofolio {
+    font-size: 36px;
+    font-style: bold;
+    margin-bottom: 100px;
+}
+
+.card-portofolio {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 20px;
+    height: auto;
+    gap: 50px;
+}
+
+.member1-portofolio, .member2-portofolio {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url(images/portofolio/bg-card.jpg);
+    background-size: cover;
+    background-position: center;;
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;       
+    padding: 20px;             
+    gap: 15px;                 
+    text-align: center;        
+}
+
+.member-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    margin-bottom: 10px;
 }
