@@ -10,6 +10,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg-main);
     color: var(--text-main);
@@ -196,7 +200,7 @@ body {
 
 .text-about h1 {
     font-size: 36px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .text-about p {
@@ -247,7 +251,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
     color: var(--text-main);
-    min-height: 200vh;
+    min-height: 100vh;
     gap: 50px;
     padding: 3rem 25rem;
     text-align: center;
@@ -288,7 +292,21 @@ body {
     display: flex;
     gap: 10px;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.button-card button {
+    border: none;
+    padding: 12px 12px;
+    border-radius: 50px; 
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%);
 }
 
 .text-portofolio {
@@ -338,10 +356,9 @@ body {
 
 .creation-portofolio {
     margin-top: 10px;
-    gap: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 80px;
 }
 
 .card-creation {
@@ -353,3 +370,42 @@ body {
     object-fit: cover;
     object-position: center;
 }
+
+.member1-portofolio:hover, .card-creation:hover, .member2-portofolio:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.card-creation img {
+    width: 300px;
+    height: auto;
+    margin: 10px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.footer {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 50px;
+    border-top: 1px solid gray;
+}
+
+.creation-portofolio {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.description-creation {
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
